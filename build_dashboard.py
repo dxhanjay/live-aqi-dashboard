@@ -162,13 +162,79 @@ def main() -> int:
   .muted {{ color:#a68d5f; font-size:12.5px; }}
   footer {{ color:#8a7350; font-size:13px; line-height:1.6; }}
   a {{ color:#f6b73c; }}
+  /* --- opening hero: a drone crosses the clouds over a Diwali skyline --- */
+  .hero {{ position:relative; height:238px; border-radius:12px; overflow:hidden;
+          border:1px solid #453026; margin-bottom:22px;
+          background:linear-gradient(180deg,#3a1c22 0%,#57281f 42%,#8a4a24 74%,#241114 100%); }}
+  .hero .glow {{ position:absolute; width:340px; height:340px; border-radius:50%;
+                right:8%; top:-130px; opacity:.5; filter:blur(10px); }}
+  .cloud {{ position:absolute; border-radius:50%; filter:blur(16px);
+           background:radial-gradient(ellipse at center, rgba(255,240,214,.85), rgba(255,240,214,0) 70%);
+           animation:drift 26s ease-in-out infinite alternate; }}
+  .c1 {{ width:340px; height:74px; top:26px; left:-60px; opacity:.55; }}
+  .c2 {{ width:420px; height:88px; top:64px; left:34%; opacity:.4; animation-duration:34s; }}
+  .c3 {{ width:300px; height:64px; top:12px; right:-40px; opacity:.5; animation-duration:22s; }}
+  .cfront {{ width:460px; height:96px; top:96px; left:16%; opacity:.34; z-index:4;
+            animation-duration:30s; }}
+  @keyframes drift {{ from {{ transform:translateX(-24px); }} to {{ transform:translateX(46px); }} }}
+  .drone {{ position:absolute; top:64px; left:-90px; width:76px; z-index:3;
+           animation:fly 13s linear infinite; }}
+  @keyframes fly {{ 0% {{ transform:translate(0,0); }} 22% {{ transform:translate(30vw,-14px); }}
+                   48% {{ transform:translate(56vw,8px); }} 74% {{ transform:translate(82vw,-10px); }}
+                   100% {{ transform:translate(112vw,4px); }} }}
+  .drone .rotor {{ transform-box:fill-box; transform-origin:center;
+                  animation:spin .28s linear infinite; }}
+  @keyframes spin {{ to {{ transform:rotate(360deg); }} }}
+  .drone .body {{ animation:bob 1.6s ease-in-out infinite alternate; }}
+  @keyframes bob {{ from {{ transform:translateY(0); }} to {{ transform:translateY(3px); }} }}
+  .skyline {{ position:absolute; left:0; right:0; bottom:0; height:64px; z-index:2; }}
+  .haze {{ position:absolute; left:0; right:0; bottom:52px; height:56px; z-index:1;
+          background:linear-gradient(180deg, rgba(246,183,60,0), rgba(246,183,60,.20)); }}
+  .hero-text {{ position:absolute; left:22px; bottom:16px; z-index:5;
+               text-shadow:0 2px 10px rgba(0,0,0,.65); }}
+  .hero-text h1 {{ font-size:30px; }}
+  .hero-text .sub {{ margin:3px 0 0; color:#f0d9a0; }}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>🪔 Live <span class="accent">AQI</span> Dashboard</h1>
-  <p class="sub">Real-Time Diwali Air Data — 11 Indian cities · {esc(first)} → {esc(last)} IST ·
-     {total} hourly readings · dashboard generated {built}</p>
+  <div class="hero">
+    <div class="glow" style="background:radial-gradient(circle, {CAT_COLORS.get(india_now_cat, '#f6b73c')}, rgba(0,0,0,0) 70%)"></div>
+    <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+    <div class="haze"></div>
+    <svg class="drone" viewBox="0 0 100 60" aria-hidden="true">
+      <g class="body" stroke="#160809" fill="#160809">
+        <line x1="50" y1="30" x2="16" y2="14" stroke-width="4"/>
+        <line x1="50" y1="30" x2="84" y2="14" stroke-width="4"/>
+        <line x1="50" y1="34" x2="20" y2="48" stroke-width="4"/>
+        <line x1="50" y1="34" x2="80" y2="48" stroke-width="4"/>
+        <rect x="38" y="24" width="24" height="13" rx="6"/>
+        <circle cx="50" cy="40" r="3.2" fill="#f6b73c" stroke="none"/>
+      </g>
+      <g fill="none" stroke="#160809" stroke-width="2.4">
+        <circle class="rotor" cx="16" cy="12" r="9" stroke-dasharray="5 4"/>
+        <circle class="rotor" cx="84" cy="12" r="9" stroke-dasharray="5 4"/>
+        <circle class="rotor" cx="20" cy="50" r="8" stroke-dasharray="5 4"/>
+        <circle class="rotor" cx="80" cy="50" r="8" stroke-dasharray="5 4"/>
+      </g>
+    </svg>
+    <div class="cloud cfront"></div>
+    <svg class="skyline" viewBox="0 0 880 64" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#12060a" d="M0,64 L0,38 L46,38 L46,22 L84,22 L84,44 L128,44 L128,14 L150,14 L150,30 L196,30 L196,46 L238,46 L238,26 L286,26 L286,40 L330,40 L330,10 L356,10 L356,34 L404,34 L404,48 L452,48 L452,20 L498,20 L498,42 L540,42 L540,28 L588,28 L588,44 L632,44 L632,16 L658,16 L658,36 L706,36 L706,48 L752,48 L752,24 L800,24 L800,40 L846,40 L846,30 L880,30 L880,64 Z"/>
+      <g fill="#f6b73c" opacity=".85">
+        <rect x="136" y="20" width="4" height="5"/><rect x="144" y="20" width="4" height="5"/>
+        <rect x="338" y="17" width="4" height="5"/><rect x="346" y="26" width="4" height="5"/>
+        <rect x="462" y="27" width="4" height="5"/><rect x="640" y="23" width="4" height="5"/>
+        <rect x="762" y="30" width="4" height="5"/><rect x="56" y="27" width="4" height="5"/>
+        <rect x="248" y="32" width="4" height="5"/><rect x="548" y="34" width="4" height="5"/>
+      </g>
+    </svg>
+    <div class="hero-text">
+      <h1>🪔 Live <span class="accent">AQI</span> Dashboard</h1>
+      <p class="sub">Real-Time Diwali Air Data — 11 Indian cities · {esc(first)} → {esc(last)} IST ·
+         {total} hourly readings · dashboard generated {built}</p>
+    </div>
+  </div>
   <p class="count">{countdown}</p>
 
   <div class="cards">
