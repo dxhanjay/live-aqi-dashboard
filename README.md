@@ -1,6 +1,6 @@
 # 🪔 Live AQI Dashboard — Real-Time Diwali Air Data
 
-An end-to-end data pipeline that tracks air quality across **11 Indian
+An end-to-end data pipeline that tracks air quality across **12 Indian
 cities** as the country heads into **Diwali (Lakshmi Puja, Sunday 8 Nov
 2026)** — the week when India's air reliably gets its worst of the year.
 
@@ -8,11 +8,16 @@ Hourly PM2.5 / PM10 → **Indian AQI computed with the CPCB breakpoint
 formula** → SQLite time series → a self-contained, Diwali-themed
 dashboard that rebuilds from the database on every run.
 
+**Dashboard design:** a clean, minimalist dark layout — a featured-city
+panel with a giant AQI numeral on the CPCB scale bar, pollutant cards, a
+24-hour chart with min/max chips, and every city ranked with semicircle
+gauges — under a drone-crossing-the-clouds Diwali hero.
+
 **Live dashboard:** https://live-aqi-dashboard-dun.vercel.app
 
 ```
 Open-Meteo Air Quality API (CAMS)                CPCB breakpoints
-  11 cities · hourly PM2.5/PM10  ──extract──▶  raw JSON (untouched)
+  12 cities · hourly PM2.5/PM10  ──extract──▶  raw JSON (untouched)
                                                       │ transform (pandas,
                                                       ▼  quality checks)
                               indian_aqi(pm25, pm10) ─┴─▶ clean CSV
@@ -55,11 +60,14 @@ Diwali night itself, and the recovery — all queryable in SQL.
 
 ## What the data showed (first run, 2 Nov 2026)
 
-- **2,376 city-hours** loaded (11 cities × Oct 25 – Nov 2, 2026 IST),
+- **2,592 city-hours** loaded (12 cities × Oct 25 – Nov 2, 2026 IST),
   all quality checks passed.
-- Right now (2 Nov, 16:00 IST): **Gurugram worst at AQI 190**, Delhi 166
+- Right now (2 Nov, ~17:00 IST): **Gurugram worst at AQI 190**, Delhi 166
   (both Moderate, top of the band), Chennai cleanest at **12 (Good)**;
-  11-city average **72 (Satisfactory)**.
+  12-city average **71 (Satisfactory)**. Featured city **Bilaspur
+  (Himachal Pradesh): 62, Satisfactory** — added because it is the
+  owner's reference location; adding it backfilled its whole window
+  (+216 rows) through the same idempotent load, no special handling.
 - **Delhi's build-up is real**: daily average AQI 51 on Oct 30 →
   135 (Oct 31) → 181 (Nov 1) → **244 on Nov 2** — climbing toward
   Diwali, with an earlier peak of **272 on Oct 26**.

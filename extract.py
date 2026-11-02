@@ -1,7 +1,7 @@
 """
 EXTRACT step — Live AQI Dashboard — Real-Time Diwali Air Data.
 
-Pulls hourly PM2.5 / PM10 for 11 Indian cities from the Open-Meteo Air
+Pulls hourly PM2.5 / PM10 for 12 Indian cities from the Open-Meteo Air
 Quality API (CAMS — Copernicus Atmosphere Monitoring Service modelled
 data; free, no API key) and saves each city's response untouched to
 data/raw/.
@@ -46,6 +46,7 @@ CITIES = [
     ("Patna", "Bihar", 25.59, 85.14),
     ("Jaipur", "Rajasthan", 26.91, 75.79),
     ("Ahmedabad", "Gujarat", 23.03, 72.59),
+    ("Bilaspur", "Himachal Pradesh", 31.33, 76.75),
 ]
 
 
