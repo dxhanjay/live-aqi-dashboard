@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live AQI Dashboard — Real-Time Diwali Air Data</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:#160809;
+         color:#f3e9d2; padding:32px 18px 48px; }
+  .wrap { max-width:880px; margin:0 auto; }
+  h1 { font-size:31px; letter-spacing:.4px; }
+  h1 .accent { color:#f6b73c; }
+  .sub { color:#c9a86a; margin:6px 0 4px; font-size:16px; }
+  .count { color:#e8dcc0; margin:2px 0 24px; font-size:15px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+           gap:12px; margin-bottom:26px; }
+  .card { background:#241114; border:1px solid #453026; border-radius:10px; padding:16px; }
+  .card .v { font-size:29px; color:#f6b73c; }
+  .card .k { color:#c9a86a; font-size:13px; margin-top:4px; }
+  .card .d { font-size:13px; margin-top:6px; color:#e0d3ae; }
+  section { background:#241114; border:1px solid #453026; border-radius:10px;
+            padding:20px; margin-bottom:18px; }
+  h2 { font-size:18px; margin-bottom:14px; color:#f8eed3; }
+  .chip { display:inline-block; padding:2px 10px; border-radius:20px;
+          font-size:13px; font-weight:bold; white-space:nowrap; }
+  .bar-row { display:flex; align-items:center; gap:10px; margin:7px 0; font-size:13px; }
+  .bar-label { width:52px; color:#e0d3ae; flex:none; }
+  .bar-track { flex:1; background:#38222a; border-radius:5px; height:16px; }
+  .bar { height:16px; border-radius:5px; }
+  .bar-num { width:150px; flex:none; color:#c9a86a; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  td, th { padding:7px 8px; border-bottom:1px solid #38222a; text-align:left; }
+  th { color:#c9a86a; font-weight:normal; font-size:12px;
+       text-transform:uppercase; letter-spacing:.06em; }
+  .muted { color:#a68d5f; font-size:12.5px; }
+  footer { color:#8a7350; font-size:13px; line-height:1.6; }
+  a { color:#f6b73c; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🪔 Live <span class="accent">AQI</span> Dashboard</h1>
+  <p class="sub">Real-Time Diwali Air Data — 11 Indian cities · 2026-10-25 00:00 → 2026-11-02 23:00 IST ·
+     2376 hourly readings · dashboard generated 02 Nov 2026, 10:55 UTC</p>
+  <p class="count">🪔 <b>6 days to Diwali</b> — Lakshmi Puja, Sun 8 Nov 2026 (Delhi muhurat 5:54–7:50 PM IST). Watch the build-up, live.</p>
+
+  <div class="cards">
+    <div class="card"><div class="v">190</div><div class="k">worst city right now</div>
+      <div class="d">Gurugram — Moderate (PM2.5 85 µg/m³)</div></div>
+    <div class="card"><div class="v">12</div><div class="k">cleanest city right now</div>
+      <div class="d">Chennai — Good (PM2.5 7 µg/m³)</div></div>
+    <div class="card"><div class="v">72</div><div class="k">India average (latest)</div>
+      <div class="d">Satisfactory across 11 cities</div></div>
+    <div class="card"><div class="v">🪔 6</div><div class="k">days to Diwali (8 Nov)</div>
+      <div class="d">the festival spike, tracked as it happens</div></div>
+  </div>
+
+  <section><h2>City air right now (latest reading per city)</h2>
+    <table><tr><th>City</th><th>AQI</th><th>PM2.5</th><th>PM10</th><th>Dominant</th><th>Updated (IST)</th></tr>
+    <tr><td><b>Gurugram</b><span class='muted'>, Haryana</span></td><td><span class="chip" style="background:#f1c40f;color:#1a1206">190 · Moderate</span></td><td>85</td><td>190</td><td>PM10</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Delhi</b><span class='muted'>, Delhi</span></td><td><span class="chip" style="background:#f1c40f;color:#1a1206">166 · Moderate</span></td><td>80</td><td>106</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Kolkata</b><span class='muted'>, West Bengal</span></td><td><span class="chip" style="background:#f1c40f;color:#1a1206">111 · Moderate</span></td><td>64</td><td>64</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Mumbai</b><span class='muted'>, Maharashtra</span></td><td><span class="chip" style="background:#a3cb38;color:#1a1206">92 · Satisfactory</span></td><td>56</td><td>57</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Lucknow</b><span class='muted'>, Uttar Pradesh</span></td><td><span class="chip" style="background:#a3cb38;color:#1a1206">73 · Satisfactory</span></td><td>44</td><td>60</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Patna</b><span class='muted'>, Bihar</span></td><td><span class="chip" style="background:#2ecc71;color:#1a1206">40 · Good</span></td><td>24</td><td>24</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Ahmedabad</b><span class='muted'>, Gujarat</span></td><td><span class="chip" style="background:#2ecc71;color:#1a1206">38 · Good</span></td><td>22</td><td>26</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Jaipur</b><span class='muted'>, Rajasthan</span></td><td><span class="chip" style="background:#2ecc71;color:#1a1206">32 · Good</span></td><td>17</td><td>32</td><td>PM10</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Bengaluru</b><span class='muted'>, Karnataka</span></td><td><span class="chip" style="background:#2ecc71;color:#1a1206">18 · Good</span></td><td>11</td><td>12</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Hyderabad</b><span class='muted'>, Telangana</span></td><td><span class="chip" style="background:#2ecc71;color:#1a1206">18 · Good</span></td><td>11</td><td>11</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr>
+<tr><td><b>Chennai</b><span class='muted'>, Tamil Nadu</span></td><td><span class="chip" style="background:#2ecc71;color:#1a1206">12 · Good</span></td><td>7</td><td>7</td><td>PM2.5</td><td class='muted'>11-02 16:00</td></tr></table></section>
+
+  <section><h2>📈 The pre-Diwali build-up — all-India daily AQI</h2><div class="bar-row"><span class="bar-label">10-25</span><div class="bar-track"><div class="bar" style="width:75%;background:#f6b73c"></div></div><span class="bar-num">98 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">10-26</span><div class="bar-track"><div class="bar" style="width:100%;background:#f6b73c"></div></div><span class="bar-num">131 · Moderate</span></div>
+<div class="bar-row"><span class="bar-label">10-27</span><div class="bar-track"><div class="bar" style="width:89%;background:#f6b73c"></div></div><span class="bar-num">116 · Moderate</span></div>
+<div class="bar-row"><span class="bar-label">10-28</span><div class="bar-track"><div class="bar" style="width:69%;background:#f6b73c"></div></div><span class="bar-num">90 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">10-29</span><div class="bar-track"><div class="bar" style="width:53%;background:#f6b73c"></div></div><span class="bar-num">69 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">10-30</span><div class="bar-track"><div class="bar" style="width:38%;background:#f6b73c"></div></div><span class="bar-num">50 · Good</span></div>
+<div class="bar-row"><span class="bar-label">10-31</span><div class="bar-track"><div class="bar" style="width:50%;background:#f6b73c"></div></div><span class="bar-num">65 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">11-01</span><div class="bar-track"><div class="bar" style="width:58%;background:#f6b73c"></div></div><span class="bar-num">76 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">11-02</span><div class="bar-track"><div class="bar" style="width:76%;background:#f6b73c"></div></div><span class="bar-num">99 · Satisfactory</span></div></section>
+  <section><h2>Delhi daily AQI</h2><div class="bar-row"><span class="bar-label">10-25</span><div class="bar-track"><div class="bar" style="width:34%;background:#e67e22"></div></div><span class="bar-num">93 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">10-26</span><div class="bar-track"><div class="bar" style="width:100%;background:#e67e22"></div></div><span class="bar-num">275 · Poor</span></div>
+<div class="bar-row"><span class="bar-label">10-27</span><div class="bar-track"><div class="bar" style="width:76%;background:#e67e22"></div></div><span class="bar-num">208 · Poor</span></div>
+<div class="bar-row"><span class="bar-label">10-28</span><div class="bar-track"><div class="bar" style="width:63%;background:#e67e22"></div></div><span class="bar-num">174 · Moderate</span></div>
+<div class="bar-row"><span class="bar-label">10-29</span><div class="bar-track"><div class="bar" style="width:36%;background:#e67e22"></div></div><span class="bar-num">100 · Satisfactory</span></div>
+<div class="bar-row"><span class="bar-label">10-30</span><div class="bar-track"><div class="bar" style="width:17%;background:#e67e22"></div></div><span class="bar-num">48 · Good</span></div>
+<div class="bar-row"><span class="bar-label">10-31</span><div class="bar-track"><div class="bar" style="width:46%;background:#e67e22"></div></div><span class="bar-num">127 · Moderate</span></div>
+<div class="bar-row"><span class="bar-label">11-01</span><div class="bar-track"><div class="bar" style="width:62%;background:#e67e22"></div></div><span class="bar-num">171 · Moderate</span></div>
+<div class="bar-row"><span class="bar-label">11-02</span><div class="bar-track"><div class="bar" style="width:90%;background:#e67e22"></div></div><span class="bar-num">247 · Poor</span></div></section>
+
+  <section><h2>Worst single hours in the record</h2>
+    <table><tr><th>City</th><th>When (IST)</th><th>AQI</th><th>PM2.5</th><th>PM10</th></tr>
+    <tr><td><b>Delhi</b></td><td>2026-10-26 21:00</td><td><span class="chip" style="background:#a93226;color:#ffffff">500 · Severe</span></td><td>122</td><td>523</td></tr>
+<tr><td><b>Delhi</b></td><td>2026-10-26 22:00</td><td><span class="chip" style="background:#a93226;color:#ffffff">500 · Severe</span></td><td>126</td><td>529</td></tr>
+<tr><td><b>Delhi</b></td><td>2026-10-26 23:00</td><td><span class="chip" style="background:#a93226;color:#ffffff">500 · Severe</span></td><td>125</td><td>516</td></tr>
+<tr><td><b>Gurugram</b></td><td>2026-10-26 21:00</td><td><span class="chip" style="background:#a93226;color:#ffffff">500 · Severe</span></td><td>119</td><td>501</td></tr>
+<tr><td><b>Gurugram</b></td><td>2026-10-26 22:00</td><td><span class="chip" style="background:#a93226;color:#ffffff">500 · Severe</span></td><td>126</td><td>555</td></tr></table></section>
+
+  <footer>
+    Method, stated plainly: concentrations are CAMS modelled data via the Open-Meteo
+    Air Quality API (not ground-station readings); Indian AQI is computed from
+    PM2.5/PM10 with the CPCB breakpoint formula — hourly values are indicative,
+    daily values use daily-mean concentrations like the official method.
+    Pipeline: API extract → pandas + quality checks → SQLite idempotent upserts → SQL → this page.
+    Code: <a href="https://github.com/dxhanjay/live-aqi-dashboard">github.com/dxhanjay/live-aqi-dashboard</a>
+  </footer>
+</div>
+</body>
+</html>
