@@ -8,7 +8,7 @@ Hourly PM2.5 / PM10 → **Indian AQI computed with the CPCB breakpoint
 formula** → SQLite time series → a self-contained, Diwali-themed
 dashboard that rebuilds from the database on every run.
 
-**Live dashboard:** https://live-aqi-dashboard.vercel.app
+**Live dashboard:** https://live-aqi-dashboard-dun.vercel.app
 
 ```
 Open-Meteo Air Quality API (CAMS)                CPCB breakpoints
