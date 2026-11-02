@@ -300,6 +300,7 @@ def main() -> int:
     rank_rows = ""
     for i, (c, s, ts, a, cat, p25, p10, dom) in enumerate(latest, 1):
         mult = p25 / WHO_PM25_24H
+        mult_txt = f"{mult:.1f}×" if mult < 1 else f"{mult:.0f}×"
         rank_rows += (
             f'<div class="rank"><div class="rank-n">{i}</div>'
             f'<div class="rank-main"><div class="rank-city">{esc(c)}'
@@ -308,7 +309,7 @@ def main() -> int:
             f'<span class="rank-cat" style="color:{CAT_COLORS.get(cat, "#888")}">'
             f'{esc(cat)}</span>'
             f'<span class="muted">PM2.5 {p25:.0f} µg/m³ · '
-            f'<b class="mult">{mult:.0f}×</b> the WHO 24-h guideline</span>'
+            f'<b class="mult">{mult_txt}</b> the WHO 24-h guideline</span>'
             f'</div></div></div>')
 
     # --- build-up bars -----------------------------------------------------
@@ -362,7 +363,7 @@ def main() -> int:
                   animation:spin .28s linear infinite; }}
   @keyframes spin {{ to {{ transform:rotate(360deg); }} }}
   .skyline {{ position:absolute; left:0; right:0; bottom:0; height:56px; z-index:2; }}
-  .hero-text {{ position:absolute; left:20px; bottom:14px; z-index:5;
+  .hero-text {{ position:absolute; left:20px; bottom:64px; z-index:5;
                text-shadow:0 2px 10px rgba(0,0,0,.7); }}
   .hero-text h1 {{ font-size:26px; font-weight:700; letter-spacing:.2px; }}
   .hero-text h1 .accent {{ color:#f6b73c; }}
@@ -473,7 +474,7 @@ def main() -> int:
     </svg>
     <div class="hero-text">
       <h1>🪔 Live <span class="accent">AQI</span> Dashboard</h1>
-      <p class="sub">Real-Time Diwali Air Data · {len(latest)} Indian cities · {total} hourly readings · generated {built}</p>
+      <p class="sub">Real-Time Diwali Air Data · {len(latest)} Indian cities · {total} hourly readings</p>
     </div>
   </div>
   <p class="count">{countdown}</p>

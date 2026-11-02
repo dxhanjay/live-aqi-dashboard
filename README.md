@@ -8,6 +8,14 @@ Hourly PM2.5 / PM10 → **Indian AQI computed with the CPCB breakpoint
 formula** → SQLite time series → a self-contained, Diwali-themed
 dashboard that rebuilds from the database on every run.
 
+## Screenshots
+
+![Dashboard — drone hero and featured city panel](docs/screenshots/dashboard-top.png)
+
+![Live ranking — worst to cleanest, with gauges](docs/screenshots/ranking.png)
+
+![The pre-Diwali build-up — daily AQI](docs/screenshots/build-up.png)
+
 **Dashboard design:** a clean, minimalist dark layout — a featured-city
 panel with a giant AQI numeral on the CPCB scale bar, pollutant cards, a
 24-hour chart with min/max chips, and every city ranked with semicircle
