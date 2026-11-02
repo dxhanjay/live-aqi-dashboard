@@ -13,6 +13,14 @@ panel with a giant AQI numeral on the CPCB scale bar, pollutant cards, a
 24-hour chart with min/max chips, and every city ranked with semicircle
 gauges — under a drone-crossing-the-clouds Diwali hero.
 
+**Location-aware:** the page embeds every tracked city's latest + 24 h
+data, so a visitor can switch cities — or tap **Use my location**: the
+browser's geolocation picks the nearest tracked city within 75 km, and
+anywhere else it fetches CAMS live for the visitor's exact coordinates
+and computes the Indian AQI in the browser with the same CPCB function.
+No backend, no tracking — the coordinates never leave the visitor's
+browser except as the API query itself.
+
 **Live dashboard:** https://live-aqi-dashboard-dun.vercel.app
 
 ```
